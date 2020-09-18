@@ -8,7 +8,7 @@
     <form action="{{ URL::to('/search')}}" method="GET" role="search">
     {{ csrf_field() }}
     <div class="input-group">
-      <input type="text" class="form-control" name="query" id="query" value="{{ request()->input('query') }}" placeholder="Szukaj produktów"><span class="input-group-btn">
+      <input type="text" class="form-control" name="q" placeholder="Szukaj produktów"><span class="input-group-btn">
       <button type="submit" class="btn btn-outline-primary">Szukaj</button>
         <span class="glyphicon glyphicon-search"></span>
       </button>
@@ -64,43 +64,12 @@
         </div>
 
         <div class="row">
-          @foreach($products as $product)
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">{{$product->name}}</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-          @endforeach
-
+          <h1>Search Results</h1>
         </div>
         <!-- /.row -->
-        <div class="row">
 
-          <div class="col-md-12">
+        <p>{{ $products->count() }} results for '{{ request()->input('query') }}'</p>
 
-            <div class="card">
-            {{ "Strona numer: " . $products->currentPage() }}
-              <div class="card-body">
-              
-                {{ $products->links() }}
-               
-
-              </div>
-
-            </div>
-
-          </div>
-  
 </div>
     </div>
       <!-- /.col-lg-9 -->

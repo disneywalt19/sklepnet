@@ -16,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        View::share('categories', DB::table('categories')->get());
+        Schema::defaultStringLength(191);
+        View::share('categories', DB::table('categories')->orderBy('name', 'asc')->get());
     }
 
     /**

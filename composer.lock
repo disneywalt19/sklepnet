@@ -4,8 +4,61 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92006abfb0afa0b489ce0387423263f1",
+    "content-hash": "ac3530ecd95f6ee998d0fe80f8761ba0",
     "packages": [
+        {
+            "name": "ambengers/query-filter",
+            "version": "4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ambengers/laravel-query-filter.git",
+                "reference": "cb3d09c4524622df70e754e4fde113d6733dd0d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ambengers/laravel-query-filter/zipball/cb3d09c4524622df70e754e4fde113d6733dd0d9",
+                "reference": "cb3d09c4524622df70e754e4fde113d6733dd0d9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ambengers\\QueryFilter\\QueryFilterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ambengers\\QueryFilter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marvin Quezon",
+                    "email": "quezon.marvin@gmail.com"
+                }
+            ],
+            "description": "Laravel package for filtering resources with request query string",
+            "keywords": [
+                "filter",
+                "laravel",
+                "query"
+            ],
+            "time": "2020-07-09T04:09:49+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.1",
