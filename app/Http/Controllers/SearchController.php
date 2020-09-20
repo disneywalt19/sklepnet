@@ -24,6 +24,12 @@ class SearchController extends Controller
         
     }
     
+    // public function searchByPrice(Request $reguest) {
+    //     $query2 = $request->input('query2');
+    //     $productsByPrice = \App\Models\Product::where('price', 'like', "%query2%")->get();
+
+    //     return view('search')->with('products', $productsByPrice);
+    // }
 
     
 }

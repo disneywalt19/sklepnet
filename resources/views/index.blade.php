@@ -23,15 +23,48 @@
       <div class="col-lg-3">
 
         <h1 class="my-4">Kategorie</h1>
-        <div class="list-group">
+        <div class="list-group categories">
 
           @foreach($categories as $category)
-            <a href="{{ $category->id }}" class="list-group-item">{{$category->name}}</a>
+            <a href="{{ $category->id }}" class="list-group-item">{{$category->name}} <span class="float-right badge badge-light round">{{ $category->products_count }}</span></a>
           @endforeach
 
         </div>
 
-      </div>
+      <h1 class="my-4">Cena</h1>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          <span class="input-group-text">$</span>
+          <span class="input-group-text">0.00</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+    </div>
+
+    <!-- Search field -->
+  <!-- <div class="row mt-4 ml-1">
+    <form action="{{ URL::to('/search')}}" method="GET" role="search">
+    {{ csrf_field() }}
+    <div class="input-group">
+      <input type="text" class="form-control" name="query2" id="query" value="{{ request()->input('query2') }}" placeholder="Szukaj" ><span class="input-group-btn">
+      <button type="submit" class="btn btn-outline-primary">Szukaj wg ceny</button>
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
+      </span>
+    </div>
+    </form>
+
+  </div> -->
+
+        <!-- <div class="list-group">
+          <label for="customRange1">Cena "Od"</label>
+          <input type="range" class="custom-range" min="0" max="5" id="customRange1">
+
+          <label for="customRange2">Cena "Do"</label>
+          <input type="range" class="custom-range" min="0" max="5" id="customRange2">
+        </div> -->
+        
+    </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">

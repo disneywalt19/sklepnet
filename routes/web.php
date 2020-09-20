@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/index', [App\Http\Controllers\ProductsController::class, 'index'])->name('index');
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
+// Route::get('/search', [App\Http\Controllers\SearchController::class, 'searchByPrice'])->name('searchByPrice');
