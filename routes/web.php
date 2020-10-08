@@ -61,3 +61,11 @@ Route::post('/orders', [App\Http\Controllers\OrderController::class, 'store'])->
 // ],function() {
     
 // });
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'account',
+    'as'     => 'account.',
+],function() {
+Route::get('/', [App\Http\Controllers\AccountController::class, 'index'])->name('account');
+Route::get('/orders', [App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
+});
