@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('price');
             $table->integer('user_id')->unsigned();
             $table->enum('status', ['pending', 'paid'])->default('pending');
             $table->timestamps();

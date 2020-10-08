@@ -1,10 +1,10 @@
-@extends('layouts.header')
-@extends('layouts.navbar')
+@extends('layouts.CategoryProductsLayout.header')
+@extends('layouts.CategoryProductsLayout.navbar')
   <!-- Page Content -->
 <div class="container">
   
 <!-- Search field -->
-  <div class="row mt-4 ml-1">
+<div class="row mt-4 ml-1">
     <form action="{{ URL::to('/search')}}" method="GET" role="search">
     {{ csrf_field() }}
     <div class="input-group">
@@ -27,7 +27,7 @@
           <h6 class="title">Kategorie</h6>
         </header>
         
-        <div class="card">
+        <div class="card-body">
 
           @foreach($categories as $category)
             <a href="{{ URL::to('index', $category->id) }}" class="list-group-item">{{$category->name}} <span class="float-right badge badge-light round">{{ $category->products_count }}</span></a>
@@ -44,19 +44,19 @@
         </header>
 
         <div class="filter-content collapse show" id="collapse33">
-          <div class="card">
-            <form action="{{ URL::to('index.pricesearch') }}" method="get">
+          <div class="card-body">
+            <form action="{{ route('index') }}" method="get">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                <label class="mt-2 ml-2"><strong>Od:</strong></label>
-                <input name="from" class="form-control" placeholder="0 zł" min="0" type="number" value="{{ Request::input('from') }}">
+                <label>Od</label>
+                <input name="from" class="form-control" placeholder="0 zł" min="0" type="number">
               </div>
               <div class="form-group text-right col-md-6">
-                <label class="mt-2 mr-2"><strong>Do:</strong></label>
-                <input name="to" class="form-control" placeholder="100 zł" min="0" type="number" value="{{ Request::input('to') }}">
+                <label>Do</label>
+                <input name="to" class="form-control" placeholder="100 zł" min="0" type="number">
                 </div>
               </div>
-              <button type="submit" class="btn btn-block btn-outline-primary">Szukaj</button>
+              <button type="submit" class="btn btn-block btn-outline-primary">Szukj</button>
             </form>
           </div>
         </div>
@@ -94,14 +94,14 @@
           </a>
         </div>
 
-        <div class="row">
-          @foreach($products as $product)
+    <div class="row">
+          @foreach($categoryProducts as $product)
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="{{ URL::to('products', ['product' => $product->id]) }}">{{$product->name}}</a>
+                    <a href="#">{{$product->name}}</a>
                   </h4>
                   <h5>{{ $product->price . "$" }}</h5>
                   <p class="card-text">{{ $product->description }}</p>
@@ -115,24 +115,28 @@
 
         </div>
 
+     
+
+
         <!-- /.row -->
         <div class="row">
 
           <div class="col-md-12">
 
-              <div class="card">
-              {{ "Strona numer: " . $products->currentPage() . " z " . $products->lastPage() }}
-                <div class="card-body">
-                
-                  {{ $products->links() }}
-                
+            <div class="card">
+            {{ "Strona numer: " . $products->currentPage() . " z " . $products->lastPage() }}
+              <div class="card-body">
+              
+                {{ $products->links() }}
+               
+
+              </div>
+
+            </div>
+
           </div>
-
-        </div>
-
-      </div>
   
-      </div>
+</div>
     </div>
       <!-- /.col-lg-9 -->
 
@@ -141,5 +145,4 @@
     
   </div>
   <!-- /.container -->
-
- @extends('layouts.footer')
+@extends('layouts.CategoryProductsLayout.footer')
