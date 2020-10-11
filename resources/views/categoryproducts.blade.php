@@ -1,5 +1,5 @@
 @extends('layouts.CategoryProductsLayout.header')
-@extends('layouts.CategoryProductsLayout.navbar')
+@extends('layouts.navbar')
   <!-- Page Content -->
 <div class="container">
   

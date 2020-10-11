@@ -66,6 +66,27 @@ Route::group([
     'prefix' => 'account',
     'as'     => 'account.',
 ],function() {
-Route::get('/', [App\Http\Controllers\AccountController::class, 'index'])->name('account');
-Route::get('/orders', [App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
+    Route::get('/', [App\Http\Controllers\AccountController::class, 'index'])->name('account');
+    Route::get('/orders', [App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
+    Route::get('/settings', [App\Http\Controllers\SettingsController::class, 'index'])->name('settings.index');
+    Route::put('/settings', [App\Http\Controllers\SettingsController::class, 'update'])->name('settings.update');
+});
+
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'admin',
+    'as'     => 'admin.',
+],function() {
+    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+
+Route::group([
+    'prefix' => 'products',
+    'as'     => 'products.',
+],function() {
+    Route::get('/', [App\Http\Controllers\Admin\ProductsController::class, 'index'])->name('index');
+    Route::get('/{product}/edit', [App\Http\Controllers\Admin\ProductsController::class, 'edit'])->name('edit');
+    Route::put('/{product}', [App\Http\Controllers\Admin\ProductsController::class, 'update'])->name('update');
+});
+
 });

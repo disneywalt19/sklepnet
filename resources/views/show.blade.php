@@ -1,5 +1,5 @@
 @extends('layouts.CategoryProductsLayout.header')
-@extends('layouts.CategoryProductsLayout.navbar')
+@extends('layouts.navbar')
 
 <section class="section-content bg padding-y">
     <div class="container">
